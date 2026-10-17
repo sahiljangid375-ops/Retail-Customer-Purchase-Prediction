@@ -1,0 +1,17 @@
+Region,City,Category,Sub-Category,Product Name,Quantity,Unit Price,Discount,Payment Mode,prediction,high_sales_probability_percent
+West,Rajasthan,Electronics,General,Samsung S25 Ultra,1.0,85000.0,3000.0,Credit Card,Lower-sales order (proxy class),36.18
+North,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),27.74
+North,Delhi,Clothing,General,Sample Product,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),27.65
+South,Delhi,Groceries,General,Potato,1.0,234.0,0.0,Cash,Lower-sales order (proxy class),27.99
+Central,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),26.35
+West,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),26.55
+North,Delhi,Books,General,Sample Product,1.0,1000.0,74.0,Credit Card,Lower-sales order (proxy class),26.61
+North,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Cash,Lower-sales order (proxy class),27.39
+North,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Cash,Lower-sales order (proxy class),27.39
+North,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),27.74
+North,Rajasthan,Electronics,General,Laptop,1.0,99999.0,5000.0,Credit Card,Lower-sales order (proxy class),38.83
+North,Delhi,Electronics,General,Laptop,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),27.46
+North,Delhi,Books,General,Sample Product,1.0,99999.0,5550.0,Credit Card,Lower-sales order (proxy class),40.18
+North,Delhi,Books,General,Sample Product,1.0,1000.0,0.0,Credit Card,Lower-sales order (proxy class),27.74
+East,jaipur,Clothing,General,t-shirt,5.0,500.0,50.0,UPI,Lower-sales order (proxy class),39.36
+North,Rajasthan,Electronics,Redmi 9,1.0,25000.0,2000.0,UPI,Lower-sales order (proxy class),30.12

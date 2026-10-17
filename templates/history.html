@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prediction History | RetailIQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#050a12;--teal:#00d4aa;--sky:#38bdf8;--white:#f0f8ff;--muted:rgba(240,248,255,.6);--border:rgba(0,212,170,.18)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#0b2233,#050a12 65%);color:var(--white);font-family:Outfit,sans-serif}
+header,footer{padding:18px 5%;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:#07111edb}
+.logo{font-size:1.35rem;font-weight:800;color:var(--white);text-decoration:none}.logo em{font-style:normal;color:var(--teal)}nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none}nav a:hover,nav .active{color:var(--teal)}
+main{max-width:1200px;margin:42px auto;padding:0 20px}.eyebrow{font:12px 'DM Mono',monospace;color:var(--teal);letter-spacing:.18em;text-transform:uppercase}h1{font-size:clamp(2rem,4vw,3rem);margin:10px 0}.sub{color:var(--muted);line-height:1.6}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:#ffffff08;margin-top:24px}table{border-collapse:collapse;width:100%;min-width:900px}th{font:11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);background:#00d4aa12}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid #ffffff10;font-size:.88rem}tr:last-child td{border-bottom:0}.empty{padding:42px;text-align:center;color:var(--muted)}footer{margin-top:55px;border-top:1px solid var(--border);border-bottom:0;color:var(--muted);font:11px 'DM Mono',monospace}
+</style></head><body>
+<header><a class="logo" href="/">Retail<em>IQ</em></a><nav><a href="/">Home</a><a href="/project">Predict</a><a href="/about">About</a><a class="active" href="/history">History</a><a href="/contact">Contact</a></nav></header>
+<main><div class="eyebrow">Prediction log</div><h1>Prediction <span style="color:var(--teal)">History</span></h1>
+<p class="sub">Recent predictions made using the retail order classification demo.</p>
+<div class="table-wrap">{% if historical_data %}
+<table><thead><tr><th>Region</th><th>City</th><th>Category</th><th>Sub-category</th><th>Product</th><th>Quantity</th><th>Unit Price</th><th>Discount</th><th>Payment</th><th>Prediction</th><th>High-sales probability</th></tr></thead>
+<tbody>{% for p in historical_data %}<tr><td>{{ p.get('Region','') }}</td><td>{{ p.get('City','') }}</td><td>{{ p.get('Category','') }}</td><td>{{ p.get('Sub-Category','') }}</td><td>{{ p.get('Product Name','') }}</td><td>{{ p.get('Quantity','') }}</td><td>{{ p.get('Unit Price','') }}</td><td>{{ p.get('Discount','') }}</td><td>{{ p.get('Payment Mode','') }}</td><td>{{ p.get('prediction','') }}</td><td>{{ p.get('high_sales_probability_percent','') }}%</td></tr>{% endfor %}</tbody></table>
+{% else %}<div class="empty">No predictions yet. Submit an order profile on the Predict page to see it here.</div>{% endif %}</div>
+<p class="sub" style="margin-top:18px">Note: the current dataset supports high-sales versus lower-sales prediction, not actual purchase/no-purchase prediction.</p></main>
+<footer><span>© 2026 RETAILIQ</span><span>Retail Prediction Platform</span></footer></body></html>

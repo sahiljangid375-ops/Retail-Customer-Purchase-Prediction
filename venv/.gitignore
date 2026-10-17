@@ -1,0 +1,16 @@
+
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.ipynb_checkpoints/
+
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+
+# Generated prediction history
+prediction_history.csv

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predict | RetailIQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#050a12;--deep:#07111e;--teal:#00d4aa;--sky:#38bdf8;--white:#f0f8ff;--muted:rgba(240,248,255,.65);--border:rgba(0,212,170,.18);--glass:rgba(7,17,30,.85)}
+*{box-sizing:border-box}body{margin:0;font-family:Outfit,sans-serif;background:radial-gradient(ellipse at top,#0b2233,#050a12 65%);color:var(--white);min-height:100vh}
+header{padding:18px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);background:var(--glass);position:sticky;top:0}
+.logo{font-weight:800;font-size:1.35rem;color:var(--white);text-decoration:none}.logo em{color:var(--teal);font-style:normal}
+nav{display:flex;gap:18px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none}nav a:hover,nav .active{color:var(--teal)}
+main{max-width:1100px;margin:42px auto;padding:0 20px}.eyebrow{font:12px 'DM Mono',monospace;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
+h1{font-size:clamp(2rem,4vw,3.2rem);margin:10px 0}.sub{color:var(--muted);line-height:1.6}.notice{background:#302810;border:1px solid #8a6a20;color:#ffe8a3;padding:14px;border-radius:10px;line-height:1.5;margin:22px 0}
+.card{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:18px;padding:25px;box-shadow:0 20px 60px #0005}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+label{display:block;margin-bottom:7px;font-weight:600}input,select{width:100%;padding:12px;border:1px solid #294254;border-radius:8px;background:#091522;color:var(--white);font:inherit}
+button{margin-top:22px;background:linear-gradient(120deg,var(--teal),var(--sky));color:#04101a;font-weight:800;border:0;border-radius:8px;padding:13px 22px;cursor:pointer;font-size:1rem}
+.result{margin-top:24px;border:1px solid var(--border);border-radius:12px;padding:20px;background:#06251f}.result h2{color:var(--teal)}.small{font-size:.86rem;color:var(--muted);line-height:1.6}
+footer{padding:22px 5%;border-top:1px solid var(--border);color:var(--muted);font:11px 'DM Mono',monospace;letter-spacing:.08em}
+</style></head>
+<body>
+<header><a class="logo" href="/">Retail<em>IQ</em></a><nav><a href="/">Home</a><a class="active" href="/project">Predict</a><a href="/about">About</a><a href="/history">History</a><a href="/contact">Contact</a></nav></header>
+<main><div class="eyebrow">PS-02 · Classification demo</div><h1>Retail Order <span style="color:var(--teal)">Prediction</span></h1>
+<p class="sub">Enter order details to estimate whether the order falls into the high-sales or lower-sales group.</p>
+<div class="notice"><b>Dataset limitation:</b> the supplied dataset contains completed orders only, not website sessions with both purchases and non-purchases. This app therefore predicts a high-sales order proxy (Sales ≥ training-data median), not actual purchase/no-purchase behavior.</div>
+<div class="card"><form method="post" action="/project"><div class="grid">
+{% for field in fields %}
+<div><label for="{{ field.name }}">{{ field.label }}</label>
+{% if field.options %}<select id="{{ field.name }}" name="{{ field.name }}">{% for option in field.options %}<option value="{{ option }}">{{ option }}</option>{% endfor %}</select>
+{% else %}<input id="{{ field.name }}" name="{{ field.name }}" type="{{ field.type }}" value="{{ field.default }}" min="{{ field.min }}" step="{{ field.step }}" required>{% endif %}
+</div>{% endfor %}
+</div><button type="submit">Run Prediction →</button></form>
+{% if result %}<div class="result"><div class="eyebrow">Prediction result</div><h2>{{ result }}</h2><p>Estimated probability of the high-sales class: <b>{{ probability }}%</b></p><p class="small">This probability describes the proxy class only. It is not a customer's purchase probability.</p></div>{% endif %}
+</div></main><footer>© 2026 RETAILIQ · RETAIL PREDICTION PLATFORM</footer></body></html>
